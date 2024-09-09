@@ -1,0 +1,103 @@
+*,*::before, *::after{
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    /* font-weight: normal; */
+}
+/* In CSS, :root is a pseudo-class selector that targets the highest-level element in the document, typically the <html> element. It allows you to define styles, including CSS custom properties (variables), that apply globally across the entire page. */
+
+:root{
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+
+}
+
+body{
+    --hue: var(--hue-neutral);
+    padding: 0;
+    margin:0;
+    display: flex;
+    /* align items along the main axis (horizontally by default) of the container */
+    justify-content: center;
+    
+    /* align items along the cross (vertical by default) of the container */
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw; 
+    background-color: hsl(var(--hue), 100%, 20%);
+}
+
+body.correct{
+    --hue:var(--hue-correct);
+
+}
+
+body.wrong{
+    --hue:var(--hue-wrong);
+}
+
+.container{
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow: 0 0 10px 2px;
+    /* 
+    First 0: means no horizontal movement, so the shadow is directly below the element.(X-axis offset).
+    Second 0 means no vertical movement, so the shadow is directly behind the element.(Y-axis offset) 
+    Third value: the higher the value, the more blurred (spread out) the shadow becomes.
+    Forth value: This controls how much the shadow expands or contracts. A positive value causes the shadow to expand, and a negative value causes it to shrink.
+    */
+
+}
+
+.btn-grid{
+    display:grid;
+    grid-template-columns: repeat(2, auto); 
+    /* auto: make the column's width as large as it needs to be. */
+
+
+    /* The gap property in CSS is used to define the spacing between rows and columns in grid and flexbox layouts. It simplifies the process of adding space between items compared to using margins or padding. */
+    gap:10px;
+    margin: 20px 0;
+}
+
+.btn{
+    --hue: var(--hue-neutral);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color:white;
+    outline: none;
+
+}
+.btn:hover{
+    border-color: black;
+}
+
+.btn.correct{
+    --hue: var(--hue-correct);
+    color: black;
+}
+.btn.wrong{
+    --hue: var(--hue-wrong);
+
+}
+
+.start-btn, .next-btn{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding:10px 20px
+}
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display:none;
+}
